@@ -1,18 +1,18 @@
 import numpy as np
 
-words = ["I", "love", "cat", "and", "rain"]
+words = ["We", "like", "love", "hate", "rain", "cats", "dawg", "snowing", "sunny"]
 word_idx = {w:i for i, w in enumerate(words)}
 
-embed = np.random.rand(5,2)
+embed = np.random.rand(len(words), 2)
 
-def vector(wrd):
-    return embed[word_idx[wrd]]
-    
-def dot(a, b):
-    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+def vector(w):
+    return embed[word_idx[w]]
 
-similar = vector("love")
+v_input = vector("love")
+v_pos = vector("cats")
+v_neg = vector("dawg")
 
-for w in words:
-    score = dot(similar, vector(w))
-    print(w, score)
+lr = 0.01
+
+print(lr * v_pos)
+print(lr * v_neg)
