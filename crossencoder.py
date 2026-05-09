@@ -5,6 +5,10 @@ import numpy as np
 
 model = CrossEncoder("cross-encoder/stsb-distilroberta-base")
 
+img_embedding = ([
+    
+])
+
 basic = "I love unique weather"
 
 sentences = [

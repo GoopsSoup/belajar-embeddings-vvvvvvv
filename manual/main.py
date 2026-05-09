@@ -12,7 +12,19 @@ v_input = vector("love")
 v_pos = vector("cats")
 v_neg = vector("dawg")
 
-lr = 0.01
+for epoch in range(100):
 
-print(lr * v_pos)
-print(lr * v_neg)
+    old_input = v_input.copy()
+    old_pos = v_pos.copy()
+    old_neg = v_neg.copy()
+
+    v_input += 0.01 * old_pos
+    v_pos += 0.01 * old_input
+
+    v_input -= 0.01 * old_neg
+    v_neg -= 0.01 * old_input
+
+    score_pos = np.dot(v_input, v_pos)
+    score_neg = np.dot(v_input, v_neg)
+
+    print(score_pos, score_neg)
